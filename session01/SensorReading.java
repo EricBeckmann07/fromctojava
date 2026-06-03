@@ -1,5 +1,5 @@
 public class SensorReading {
-    private double temperatureC;
+    public double temperatureC;
 
     public SensorReading(double temperatureC) {
         // sanity check: absolute zero is -273.15°C

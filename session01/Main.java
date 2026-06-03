@@ -1,18 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-        SensorReading2 r1 = new SensorReading2("2026-06-01", "S1", 18.3, 30.5f);
-        r1.print();
+        SensorReading2 r1 = new SensorReading2(1, "S1", 18.3, 30.5f);
 
-        SensorReading2 r2 = new SensorReading2("2026-05-01", "S2", -300.2, 35.5f);
-        r2.print();
+        SensorDataHandler handler = new ConsolePrinter("Initiale Ausgabe");
+        handler.handle(r1);
+        handler.close();
 
-        SensorReading2 r3 = new SensorReading2("2026-06-01", null, 18.3, 30.5f);
-        r3.print();
 
-        SensorReading2 r4 = new SensorReading2("2026-05-01", "S2", 30.3, 105.5f);
-        r4.print();
+        SensorReading2 d1 = new SensorReading2(1, "S1", 19.3, 64.2f);
+        SensorReading2 d2 = new SensorReading2(2, "S1", 25, 50.4f);
+        SensorReading2 d3 = new SensorReading2(3, "S1", 30.3, 32.3f);
+        
+        InMemoryStore storage = new InMemoryStore();
+        storage.handle(d1);
+        storage.handle(d2);
+        storage.handle(d3);
+        storage.close();
 
-        SensorReading2 r5 = new SensorReading2("2026-05-01", null, -300.3, 105.5f);
-        r5.print();
     }
 }

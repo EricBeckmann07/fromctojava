@@ -1,11 +1,11 @@
-public class SensorReading2 {
-    public String timestamp;
-    public String station_id;
-    public double temperature;
-    public float humidity;
+public class SensorReading2 implements Describable {
+    private int seq;
+    private String station_id;
+    private double temperature;
+    private float humidity;
 
-    public SensorReading2 (String timestamp, String station_id, double temperature, float humidity) {
-        this.timestamp = timestamp;
+    public SensorReading2 (int seq, String station_id, double temperature, float humidity) {
+        this.seq = seq;
 
         if (station_id == null) {
             System.err.println("Station ID ist leer");
@@ -29,7 +29,42 @@ public class SensorReading2 {
         }
     }
 
+    //Getter
+
+    public int getseq() {return this.seq;}
+    public String getstation_id() {return this.station_id;}
+    public double gettemperature() {return this.temperature;}
+    public float gethumidity() {return this.humidity;}
+
+    //Setter
+
+    public void settimestamp(int seq) {
+        this.seq = seq;
+    }
+
+    public void setstation_id(String station_id) {
+        this.station_id = station_id;
+    }
+
+    public void settemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    public void sethumidity(float humidity) {
+        this.humidity = humidity;
+    }
+
+    public double gettemperatureF() {
+        return this.temperature * 9 / 5 + 32;
+    }
+
+    @Override
+    public String describe() {
+        return "Reading " + seq + ": " + temperature + "°C @ " + station_id;
+    }
+
+
     public void print() {
-        System.out.println("Timestamp: " + this.timestamp + " | Station ID: " + this.station_id + " | Temperatur: " + this.temperature + " | Humidity: " + this.humidity);
+        System.out.println("Seq: " + this.seq + " | Station ID: " + this.station_id + " | Temperatur: " + this.temperature + " | Humidity: " + this.humidity);
     }
 }
