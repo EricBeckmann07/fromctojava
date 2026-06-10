@@ -1,19 +1,21 @@
 import java.util.ArrayList; 
 import java.util.List; 
-import java.util.Iterator; 
+import java.util.Iterator;
+import java.io.FileWriter;
+import java.io.Writer;
+import java.io.BufferedWriter;
+
 
 public class Hallo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        List<Describable> things = new ArrayList<>(); 
+        
+        Writer fw = new FileWriter("test.txt", true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write("Jan fühlt sich Disco!");
+        bw.write("Er ist so high");
+        bw.newLine();
+        bw.close();
 
-        things.add(new SensorReading2(1, "S1", 19.3, 64.2f)); 
-        things.add(new Station("Nord", "Freiburg")); 
-        things.add(new SensorReading2(2, "S2", 22.1, 61.0f)); 
-        things.add(new Station("Süd", "Basel"));
-
-        for (Describable d : things) {
-            System.out.println(d.describe());
-        }
     }
 }

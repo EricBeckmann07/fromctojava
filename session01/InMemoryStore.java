@@ -2,22 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoryStore implements SensorDataHandler {
-    private List<SensorReading> readings = new ArrayList<>();
+    private List<SensorReading2> readings = new ArrayList<>();
 
     @Override
-    public void handle(SensorReading reading) {
+    public void handle(SensorReading2 reading) {
         readings.add(reading);
     }
 
     @Override
     public void close() {
-        SensorReading firstElement = readings.get(0);
-        double maxTemp = firstElement.getTemperatureC();
-        double minTemp = firstElement.getTemperatureC();
+        SensorReading2 firstElement = readings.get(0);
+        double maxTemp = firstElement.gettemperature();
+        double minTemp = firstElement.gettemperature();
 
         for (int i=1; i<readings.size(); i++){
-            SensorReading element = readings.get(i);
-            double temperature = element.getTemperatureC();
+            SensorReading2 element = readings.get(i);
+            double temperature = element.gettemperature();
             if (temperature > maxTemp){
                 maxTemp = temperature;
 
