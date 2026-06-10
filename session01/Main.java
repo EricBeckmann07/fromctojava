@@ -10,6 +10,7 @@ public class Main {
             handler.handle(r);
         }
         handler.close();
+        
     }
 
     public static void main(String[] args) throws Exception {
@@ -19,6 +20,15 @@ public class Main {
         data.add(new SensorReading2(3, "S1", 30.3, 32.3f));
 
         processAll(data, new CSVReader("text.csv"));
+
+        new CSVReader("text.csv");
+        new ConsolePrinter("Hallo");
+
+        MultiHandler multi = new MultiHandler();
+        multi.add(new CSVReader("text.csv"));
+        multi.add(new ConsolePrinter("Hallo"));
+        
+        processAll(data, multi);
 
     }
 }
