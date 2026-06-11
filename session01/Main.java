@@ -19,14 +19,14 @@ public class Main {
         data.add(new SensorReading2(2, "S1", 25, 50.4f));
         data.add(new SensorReading2(3, "S1", 30.3, 32.3f));
 
-        processAll(data, new CSVReader("text.csv"));
+        //processAll(data, new ConsolePrinter());
 
         new CSVReader("text.csv");
-        new ConsolePrinter("Hallo");
+        new ConsolePrinter();
 
         MultiHandler multi = new MultiHandler();
         multi.add(new CSVReader("text.csv"));
-        multi.add(new ConsolePrinter("Hallo"));
+        multi.add(new ConsolePrinter());
         
         processAll(data, multi);
 

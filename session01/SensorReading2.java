@@ -63,6 +63,9 @@ public class SensorReading2 implements Describable {
         return "Reading " + seq + ": " + temperature + "°C @ " + station_id;
     }
 
+    public void close() {
+    }
+
 
     public void print() {
         System.out.println("Seq: " + this.seq + " | Station ID: " + this.station_id + " | Temperatur: " + this.temperature + " | Humidity: " + this.humidity);

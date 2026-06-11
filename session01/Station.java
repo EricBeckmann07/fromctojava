@@ -9,4 +9,8 @@ public class Station implements Describable {
     public String describe() {
         return "Station " + name + " in " + location;
     }
+
+    public void close() {
+        
+    }
 }

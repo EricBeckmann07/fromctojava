@@ -1,20 +1,15 @@
 public class ConsolePrinter implements SensorDataHandler {
-    private String ausgabe;
-
-    public ConsolePrinter (String ausgabe) {
-        this.ausgabe = ausgabe;
-    }
 
     @Override
     public void handle(SensorReading2 reading) {
         if (reading == null) {
-            this.ausgabe = "Keine Daten Vorhanden scheiße man!!!";
+            System.out.println("Keine Daten Vorhanden scheiße man!!!");
+            return;
         }
-        this.ausgabe = "Seq: " + reading.getseq() + "| Station ID: "+ reading.getstation_id() + "| Temperatur: " + reading.gettemperature() + "| Humidity: " + reading.gethumidity();
+        System.out.println("Seq: " + reading.getseq() + "| Station ID: "+ reading.getstation_id() + "| Temperatur: " + reading.gettemperature() + "| Humidity: " + reading.gethumidity());
     }
     
     @Override
     public void close() {
-        System.out.println(ausgabe);
     }
 }
